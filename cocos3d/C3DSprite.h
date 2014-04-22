@@ -1,4 +1,4 @@
-#ifndef C3DSprite_H_
+ï»¿#ifndef C3DSprite_H_
 #define C3DSprite_H_
 #include <list>
 #include <vector>
@@ -35,25 +35,20 @@ class C3DActionListener;
 /**
 *Defines this dynamic object of the scene,which can play animation,change material.
 */
-class  C3DSprite : public C3DRenderNode/*,public C3DResource*/
+class  C3DSprite : public C3DRenderNode
 {
 	friend class C3DScene;
 	friend class C3DResourceLoader;
+	friend class C3DRenderNodeManager;
 
 public:
 
 	C3DSprite(const std::string& id);
-
     ~C3DSprite(void);
 
 	C3DNode::Type getType() const;
 
-	 // create sprite and add it to autorelease pool
-    static C3DSprite* create(const std::string& id);
-
-	virtual bool loadFromFile(const std::string& fileName,bool isLoadAll=false);
-	virtual bool load(bool isLoadAll=false);
-	virtual bool load(const std::string& fileName);
+	virtual bool load(C3DResourceLoader* loader, bool isLoadAll = false);
 
 	void loadNode(const std::string& nodeName);
 	void loadNodes(std::list<std::string>* models);
@@ -111,10 +106,10 @@ public:
 
 	void setSkeleton(C3DBone* joint);
 
-	// »ñÈ¡¸ú¹Ç÷À lvlong
+	// è·å–è·Ÿéª¨éª¼ lvlong
 	C3DBone* getSkeletonRootBone()const;
 
-	// ¸ù¾İÃû×Ö»ñµÃ¹Ç÷À lvlong
+	// æ ¹æ®åå­—è·å¾—éª¨éª¼ lvlong
 	C3DBone* getBone(const std::string& name)const;
 
     C3DAnimationClip* getAnimationClip(const std::string& strClip);
@@ -122,25 +117,22 @@ public:
 
     //unsigned int getTriangleCount() const;
 
-	// »ñÈ¡¶¯»­×ÜÖ¡Êı lvlong
+	// è·å–åŠ¨ç”»æ€»å¸§æ•° lvlong
 	int getAnimationFrameCount();
 
 	virtual C3DNode* clone(CloneContext& context) const;
 
 	void stopAllAnimationClip();
 
-	//FacialAnimManager* getFacialAnimManager();
-
     C3DAnimation* getAnimation() { return _animation; }
+protected:
+	// create sprite and add it to autorelease pool
+	static C3DSprite* create(const std::string& id);
 
 	virtual const C3DMatrix& getWorldMatrix();
-
-protected:
 	virtual void copyFrom(const C3DTransform* other, C3DNode::CloneContext& context);
 
 private:
-
-	//FacialAnimManager * _facialAnimManager;
 
 	C3DSkeleton* _skeleton;
 	C3DAnimation* _animation;

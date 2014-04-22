@@ -15,7 +15,7 @@ namespace cocos3d
 
 namespace cocos2d
 {
-class C3DBaseActor : public CCObject
+class C3DBaseActor : public Ref
 {
 public:
 	C3DBaseActor(std::string& name,cocos3d::C3DNode* node, cocos3d::C3DLayer* layer);

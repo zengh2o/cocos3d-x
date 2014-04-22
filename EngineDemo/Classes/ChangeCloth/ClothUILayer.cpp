@@ -46,7 +46,7 @@ bool ClothUILayer::init()
     return true;
 }
 
-void ClothUILayer::menuCloseCallback(CCObject* pSender)
+void ClothUILayer::menuCloseCallback(Ref* pSender)
 {
     CCDirector::sharedDirector()->end();
 
@@ -55,37 +55,37 @@ void ClothUILayer::menuCloseCallback(CCObject* pSender)
 #endif
 }
 
-void ClothUILayer::menuCallback_changeCap(CCObject* pSender)
+void ClothUILayer::menuCallback_changeCap(Ref* pSender)
 {
 	if( ChangeClothesTestLayer::getInstance()==NULL )
 		return;
 	ChangeClothesTestLayer::getInstance()->changePart("cap");
 }
-void ClothUILayer::menuCallback_changeHair(CCObject* pSender)
+void ClothUILayer::menuCallback_changeHair(Ref* pSender)
 {
 	if( ChangeClothesTestLayer::getInstance()==NULL )
 		return;
 	ChangeClothesTestLayer::getInstance()->changePart("hair");
 }
-void ClothUILayer::menuCallback_changeGlasses(CCObject* pSender)
+void ClothUILayer::menuCallback_changeGlasses(Ref* pSender)
 {
 	if( ChangeClothesTestLayer::getInstance()==NULL )
 		return;
 	ChangeClothesTestLayer::getInstance()->changePart("glasses");
 }
-void ClothUILayer::menuCallback_changeUpBody(CCObject* pSender)
+void ClothUILayer::menuCallback_changeUpBody(Ref* pSender)
 {
 	if( ChangeClothesTestLayer::getInstance()==NULL )
 		return;
 	ChangeClothesTestLayer::getInstance()->changePart("shangshen");
 }
-void ClothUILayer::menuCallback_changeBottomBody(CCObject* pSender)
+void ClothUILayer::menuCallback_changeBottomBody(Ref* pSender)
 {
 	if( ChangeClothesTestLayer::getInstance()==NULL )
 		return;
 	ChangeClothesTestLayer::getInstance()->changePart("xiashen");
 }
-void ClothUILayer::menuCallback_changeShoot(CCObject* pSender)
+void ClothUILayer::menuCallback_changeShoot(Ref* pSender)
 {
 	if( ChangeClothesTestLayer::getInstance()==NULL )
 		return;
@@ -95,7 +95,7 @@ void ClothUILayer::menuCallback_changeShoot(CCObject* pSender)
 static float g_eyeWeight = 0.0f;
 static float g_noseWeight = 0.0f;
 
-void ClothUILayer::menuCallback_changeNose(CCObject* pSender)
+void ClothUILayer::menuCallback_changeNose(Ref* pSender)
 {
 	if( ChangeClothesTestLayer::getInstance()==NULL )
 		return;
@@ -104,7 +104,7 @@ void ClothUILayer::menuCallback_changeNose(CCObject* pSender)
 		g_noseWeight = 0.0f;
 	ChangeClothesTestLayer::getInstance()->changeMorph("nose",g_noseWeight);
 }
-void ClothUILayer::menuCallback_changeEye(CCObject* pSender)
+void ClothUILayer::menuCallback_changeEye(Ref* pSender)
 {
 	if( ChangeClothesTestLayer::getInstance()==NULL )
 		return;

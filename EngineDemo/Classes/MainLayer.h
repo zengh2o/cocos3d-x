@@ -30,9 +30,9 @@ public:
     // implement the "static node()" method manually
     CREATE_FUNC(MainLayer);
 
-    void menuCallback(CCObject * pSender);
-    void menuBackCallback(CCObject * pSender);
-    void closeCallback(CCObject * pSender);
+    void menuCallback(Ref * pSender);
+    void menuBackCallback(Ref * pSender);
+    void closeCallback(Ref * pSender);
 
 	virtual void onTouchesBegan( const std::vector<Touch*>& touches, Event *unused_event );
 	virtual void onTouchesMoved( const std::vector<Touch*>& touches, Event *unused_event );

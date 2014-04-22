@@ -44,6 +44,7 @@ C3DMesh.cpp \
 C3DMeshSkin.cpp \
 C3DModel.cpp \
 C3DModelNode.cpp \
+C3Dneon_matrix_impl.c \
 C3DNode.cpp \
 C3DNoise.cpp \
 C3DOBB.cpp \
@@ -77,7 +78,7 @@ C3DSkeleton.cpp \
 C3DSkinlessModel.cpp \
 C3DSkinModel.cpp \
 C3DSprite.cpp \
-C3DSpriteManager.cpp \
+C3DRenderNodeManager.cpp \
 C3DStat.cpp \
 C3DStaticObj.cpp \
 C3DStream.cpp \

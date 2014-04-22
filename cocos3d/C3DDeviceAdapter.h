@@ -79,8 +79,29 @@ public:
 
 	bool isSupportVAO()
 	{
-     	return _supportVAO;
-      // return true;
+	
+    //	return _supportVAO;
+
+		if(_deviceLevel == DeviceLevel::High)
+			return _supportVAO;
+		else
+			return false;
+	}
+
+	bool isSupportShadow()
+	{
+		if(_deviceLevel == DeviceLevel::High)
+			return true;
+		else
+			return false;
+	}
+
+	bool isSuppertPostProcess()
+	{
+		if(_deviceLevel == DeviceLevel::High)
+			return  true;
+		else
+			return false;
 	}
 	
 

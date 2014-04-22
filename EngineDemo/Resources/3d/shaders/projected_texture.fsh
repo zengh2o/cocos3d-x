@@ -112,6 +112,7 @@ void main()
     // Light the pixel
     gl_FragColor.a = _baseColor.a;
 	gl_FragColor.rgb = _ambientColor + _diffuseColor + _specularColor;
+	
 	#ifdef PTLIGHT
 	gl_FragColor *= textureCube(u_shellTex, normalize(v_lightRefDir));
 	#endif

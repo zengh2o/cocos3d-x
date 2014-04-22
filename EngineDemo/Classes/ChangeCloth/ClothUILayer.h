@@ -12,16 +12,16 @@ public:
     virtual bool init();
 
     // a selector callback
-    void menuCloseCallback(CCObject* pSender);
+    void menuCloseCallback(Ref* pSender);
 
-	void menuCallback_changeCap(CCObject* pSender);
-	void menuCallback_changeHair(CCObject* pSender);
-	void menuCallback_changeGlasses(CCObject* pSender);
-	void menuCallback_changeUpBody(CCObject* pSender);
-	void menuCallback_changeBottomBody(CCObject* pSender);
-	void menuCallback_changeShoot(CCObject* pSender);
-	void menuCallback_changeNose(CCObject* pSender);
-	void menuCallback_changeEye(CCObject* pSender);
+	void menuCallback_changeCap(Ref* pSender);
+	void menuCallback_changeHair(Ref* pSender);
+	void menuCallback_changeGlasses(Ref* pSender);
+	void menuCallback_changeUpBody(Ref* pSender);
+	void menuCallback_changeBottomBody(Ref* pSender);
+	void menuCallback_changeShoot(Ref* pSender);
+	void menuCallback_changeNose(Ref* pSender);
+	void menuCallback_changeEye(Ref* pSender);
 
     // implement the "static node()" method manually
     CREATE_FUNC(ClothUILayer);

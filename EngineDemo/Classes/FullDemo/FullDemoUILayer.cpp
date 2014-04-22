@@ -35,6 +35,7 @@ bool FullDemoUILayer::init()
 	CCMenuItemImage *pItemFarAttack = CCMenuItemImage::create("icons/range_attack.png","icons/range_attack_selected.png",CC_CALLBACK_1(FullDemoUILayer::menuCallback_farAttack,this) );
 	CCMenuItemImage *pItemLightingSkill = CCMenuItemImage::create("icons/lighting.png","icons/lighting_selected.png",CC_CALLBACK_1(FullDemoUILayer::menuCallback_lightingSkill,this) );
 	CCMenuItemImage *pItemShowMiniMap = CCMenuItemImage::create("icons/mini_map.png","icons/mini_map_selected.png",CC_CALLBACK_1(FullDemoUILayer::menuCallback_showMini,this) );
+
     CCLabelTTF* label = CCLabelTTF::create("Performance", "Arial", 20);
     CCMenuItemLabel *pItemShowPerformance = CCMenuItemLabel::create(label, CC_CALLBACK_1(FullDemoUILayer::menuCallback_showPerformance,this) );
 
@@ -48,7 +49,7 @@ bool FullDemoUILayer::init()
     pItemShowPerformance->setPosition(	ccp(menuStartX + placeHolderWidth*5, VisibleRect::bottom().y + 50 ) );
 
 	//CCMenu* pMenu = CCMenu::create(pItemNearAttack,pItemFarAttack,pItemLightingSkill,pItemShowMiniMap, pItemShowPerformance,NULL);
-    CCMenu* pMenu = CCMenu::create(pItemNearAttack,pItemFarAttack,pItemLightingSkill ,NULL);
+    CCMenu* pMenu = CCMenu::create(pItemNearAttack, pItemFarAttack, pItemLightingSkill, pItemShowPerformance, NULL);
     pMenu->setPosition( CCPointZero );
     this->addChild(pMenu, 10);
 
@@ -74,13 +75,14 @@ bool FullDemoUILayer::init()
     return true;
 }
 
-void FullDemoUILayer::menuCallback_showPerformance(CCObject* pSender)
+void FullDemoUILayer::menuCallback_showPerformance(Ref* pSender)
 {
     if( FullDemoLayer::getInstance()==NULL )
         return;
     FullDemoLayer::getInstance()->switchProfileShow();
 }
-void FullDemoUILayer::menuCloseCallback(CCObject* pSender)
+
+void FullDemoUILayer::menuCloseCallback(Ref* pSender)
 {
     CCDirector::sharedDirector()->end();
 
@@ -89,28 +91,28 @@ void FullDemoUILayer::menuCloseCallback(CCObject* pSender)
 #endif
 }
 
-void FullDemoUILayer::menuCallback_nearAttack(CCObject* pSender)
+void FullDemoUILayer::menuCallback_nearAttack(Ref* pSender)
 {
 	if( FullDemoLayer::getInstance()==NULL )
 		return;
 	FullDemoLayer::getInstance()->getMainPlayer()->setAttackType(AT_Melee);
 }
 
-void FullDemoUILayer::menuCallback_farAttack(CCObject* pSender)
+void FullDemoUILayer::menuCallback_farAttack(Ref* pSender)
 {
 	if( FullDemoLayer::getInstance()==NULL )
 		return;
 	FullDemoLayer::getInstance()->getMainPlayer()->setAttackType(AT_Range);
 }
 
-void FullDemoUILayer::menuCallback_lightingSkill(CCObject* pSender)
+void FullDemoUILayer::menuCallback_lightingSkill(Ref* pSender)
 {
 	if( FullDemoLayer::getInstance()==NULL )
 		return;
 	FullDemoLayer::getInstance()->getMainPlayer()->setAttackType(AT_Lighting);
 }
 
-void FullDemoUILayer::menuCallback_showMini(CCObject* pSender)
+void FullDemoUILayer::menuCallback_showMini(Ref* pSender)
 {
 	if( FullDemoLayer::getInstance()==NULL )
 		return;

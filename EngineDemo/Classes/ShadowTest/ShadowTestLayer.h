@@ -32,7 +32,7 @@ public:
     virtual void touchEvent(cocos3d::TouchEvent evt, float x, float y, unsigned int contactIndex);
 	
 
-    void menuCallback(CCObject * pSender);
+    void menuCallback(Ref * pSender);
 
     CCLayer* createUILayer();
     void setUpShadowMap();

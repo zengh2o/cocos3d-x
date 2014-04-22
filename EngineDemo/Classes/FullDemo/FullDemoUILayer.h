@@ -12,15 +12,15 @@ public:
     virtual bool init();
 
     // a selector callback
-    void menuCloseCallback(CCObject* pSender);
+    void menuCloseCallback(Ref* pSender);
 
-    void menuCallback_nearAttack(CCObject* pSender);
-	void menuCallback_farAttack(CCObject* pSender);
-	void menuCallback_lightingSkill(CCObject* pSender);
+    void menuCallback_nearAttack(Ref* pSender);
+	void menuCallback_farAttack(Ref* pSender);
+	void menuCallback_lightingSkill(Ref* pSender);
 
-	void menuCallback_showMini(CCObject* pSender);
+	void menuCallback_showMini(Ref* pSender);
 
-    void menuCallback_showPerformance(CCObject* pSender);
+    void menuCallback_showPerformance(Ref* pSender);
 
     // implement the "static node()" method manually
     CREATE_FUNC(FullDemoUILayer);
