@@ -133,6 +133,8 @@ public:
 
     C3DAnimation* getAnimation() { return _animation; }
 
+	virtual const C3DMatrix& getWorldMatrix();
+
 protected:
 	virtual void copyFrom(const C3DTransform* other, C3DNode::CloneContext& context);
 

@@ -388,4 +388,47 @@ void C3DSprite::stopAllAnimationClip()
 	_animation->stopAll();
 	_animation->update(0);
 }
+
+const C3DMatrix& C3DSprite::getWorldMatrix()
+{
+	if (_dirtyBits & NODE_DIRTY_WORLD)
+	{
+		// Clear our dirty flag immediately to prevent this block from being entered if our
+		// parent calls our getWorldMatrix() method as a result of the following calculations.
+		_dirtyBits &= ~NODE_DIRTY_WORLD;
+
+		// If we have a parent, multiply our parent world transform by our local
+		// transform to obtain our final resolved world transform.
+		C3DNode* parent = getParent();
+		if (parent)
+		{
+			C3DMatrix::multiply(parent->getWorldMatrix(), getMatrix(), &_world);
+			if (parent->getType() == C3DNode::NodeType_Bone && parent->getParent())
+			{
+				C3DBone* bone = dynamic_cast<C3DBone*> (parent);
+				while (bone && bone->getParent() && bone->getParent()->getType() == C3DNode::NodeType_Bone)
+				{
+					bone = dynamic_cast<C3DBone*> (bone->getParent());
+				}
+				C3DMatrix matrix = bone->getMatrix();
+				matrix.invert();
+				C3DMatrix::multiply(_world, matrix, &_world);
+			}
+		}
+		else
+		{
+			_world = getMatrix();
+		}
+
+		// Our world matrix was just updated, so call getWorldMatrix() on all child nodes
+		// to force their resolved world matrices to be updated.
+		for(std::vector<C3DNode*>::const_iterator iter=_children.begin(); iter!=_children.end(); ++iter)
+		{
+			(*iter)->getWorldMatrix();
+		}
+	}
+
+	return _world;
+}
+
 }

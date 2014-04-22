@@ -37,7 +37,7 @@ enum TouchEvent
 *Defines the 3DLayer.
 *This class  is the 3D entry.One 3d layer have one scene.you can use 3d layer to interactive with 2d layer.
 */
-class  C3DLayer :  public cocos2d::CCLayer
+class  C3DLayer :  public cocos2d::Layer
 {
 public:
     C3DLayer();
