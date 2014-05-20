@@ -194,7 +194,7 @@ public:
 
 	C3DRenderState* getParent();
 	virtual void reload();
-protected:
+public:
 
     /**
      * Constructor.

@@ -125,9 +125,11 @@ public:
 	void stopAllAnimationClip();
 
     C3DAnimation* getAnimation() { return _animation; }
+
+	static C3DSprite* create(const std::string& id);
 protected:
 	// create sprite and add it to autorelease pool
-	static C3DSprite* create(const std::string& id);
+	//static C3DSprite* create(const std::string& id);
 
 	virtual const C3DMatrix& getWorldMatrix();
 	virtual void copyFrom(const C3DTransform* other, C3DNode::CloneContext& context);
